@@ -1,0 +1,3 @@
+module Easyregexp
+  # Your code goes here...
+end
