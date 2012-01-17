@@ -11,6 +11,10 @@ describe Easyregexp::Easyregexp do
         subject.anything_but_whitespaces
         subject.regexp.should = /\S*/
       end
+      it 'returns the correct verbose form' do
+        subject.anything_but_whitespaces
+        subject.verbose.should = 'Anything but whitespaces'
+      end
       it 'should behave properly accepting' do
         subject.anything_but_whitespaces
         'AAAAA'.should =~ subject
