@@ -2,8 +2,6 @@ require 'spec_helper'
 describe Easyregexp::Easyregexp do
   describe 'attributes' do
     #remember to use attr_accesor !!!!
-    it { should_respond_to :regexp }
-    it { should_respond_to :verbose }
   end
   describe 'generating methods' do
     describe '#anything_but_whitespaces' do
