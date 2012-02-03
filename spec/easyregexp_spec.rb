@@ -13,9 +13,13 @@ describe Easyregexp::Easyregexp do
           subject.anything_but('b')
           subject.verbose.should == 'Anything but b'
         end
-        it 'behaves properly' do
+        it 'should behave properly accepting' do
           subject.anything_but('c')
-          subject.regexp.should =~ 'cccc'
+          'aaa'.should =~ subject.regexp
+        end
+        it 'should behave properly rejecting' do
+          subject.anything_but('c')
+          'ccc'.should_not =~ subject.regexp
         end
       end
       describe '#anything_but_whitespaces' do
@@ -27,7 +31,7 @@ describe Easyregexp::Easyregexp do
           subject.anything_but_whitespaces
           subject.verbose.should == 'Anything but whitespaces'
         end
-        it 'should behave properly accepting' do
+        it 'should behave properly' do
           subject.anything_but_whitespaces
           'AAAAA'.should =~ subject.regexp
         end
