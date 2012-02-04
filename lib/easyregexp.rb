@@ -10,6 +10,8 @@ module Easyregexp
     end
 
     def anything_but(arg)
+      raise ArgumentError, 'Argument is not of a valid type' unless (arg.is_a? String) || (arg.is_a? Array)
+      arg = arg.inject(:+) if arg.is_a? Array
       @regexp ||= Regexp.new('[^'+arg.to_s+']')
       verbalize(__method__, arg)
     end
