@@ -3,6 +3,22 @@ describe Easyregexp::Easyregexp do
   describe 'attributes' do
   end
   describe 'generating methods' do
+    describe '#all_the' do
+      describe '#all_the_whitespaces' do
+        it 'returns the correct regexp' do
+          subject.all_the_whitespaces
+          subject.regexp.should == /\s/
+        end
+        it 'returns the correct verbose form' do
+          subject.all_the_whitespaces
+          subject.verbose.should == 'All the whitespaces'
+        end
+        it 'should behave properly' do
+          subject.all_the_whitespaces
+          'AAA AA'.should =~ subject.regexp
+        end
+      end
+    end
     describe '#anything_but' do
       describe '#anything_but()' do
         it 'returns the correct regexp' do
