@@ -3,7 +3,7 @@ describe Easyregexp::Easyregexp do
   describe 'attributes' do
   end
   describe 'generating methods' do
-    describe '#anything_but_?' do
+    describe '#anything_but' do
       describe '#anything_but()' do
         it 'returns the correct regexp' do
           subject.anything_but('a')
