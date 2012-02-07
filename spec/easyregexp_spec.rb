@@ -21,7 +21,14 @@ describe Easyregexp::Easyregexp do
           subject.anything_but('c')
           'ccc'.should_not =~ subject.regexp
         end
+        it 'raises an exception if the argument is not valid' do
+          proc { subject.anything_but(true) }.should raise_error
+        end
         describe 'array as argument' do
+          it 'returns the correct regexp' do
+            subject.anything_but('fgh')
+            subject.regexp.should == /[^fgh]/
+          end
           it 'should work correctly when the argument is an array' do
             subject.anything_but(['d','e','f'])
             'def'.should_not =~ subject.regexp
