@@ -48,4 +48,5 @@ class Easyregexp::Easyregexp
     arg = ' '+arg unless arg.empty?
     @verbose = method.to_s.gsub!('_',' ').capitalize+arg
   end
+
 end
