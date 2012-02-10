@@ -1,7 +1,6 @@
 require 'spec_helper'
+
 describe Easyregexp::Easyregexp do
-  describe 'attributes' do
-  end
   describe 'generating methods' do
     describe '#all_the' do
       describe '#all_the_whitespaces' do
@@ -52,9 +51,12 @@ describe Easyregexp::Easyregexp do
         end
       end
       describe '#anything_but_whitespaces' do
+        it 'responds to the method' do
+          subject.respond_to?('anything_but_whitespaces').should be_true
+        end
         it 'returns the correct regexp' do
           subject.anything_but_whitespaces
-          subject.regexp.should == /\S*/
+          subject.regexp.should == /\S/
         end
         it 'returns the correct verbose form' do
           subject.anything_but_whitespaces
