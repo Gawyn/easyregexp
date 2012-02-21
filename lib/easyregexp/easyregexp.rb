@@ -1,6 +1,6 @@
-class Regexp
+require 'easyregexp/easyregexp_methods.rb'
 
-  require 'easyregexp/easyregexp_methods.rb'
+class Regexp
 
   attr_accessor :verbose
 
