@@ -5,6 +5,7 @@ module EasyRegexpMethods
     raise ArgumentError, 'Too many arguments' if args.count > 1
     raise ArgumentError, 'Argument is not of a valid type' unless (arg.is_a? String) || (arg.is_a? Array) || (arg.is_a? Hash) || arg.nil?
     regexp =  hashregexp[method]
+    super if regexp.nil?
     arg = arg.inject(:+) if arg.is_a? Array
     regexp.gsub!('$',arg) if arg
     r = Regexp.new(regexp)
