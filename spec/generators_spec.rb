@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Regexp.easy do
+describe Regexp do
 
   describe 'generating methods' do
 
@@ -64,7 +64,6 @@ describe Regexp.easy do
           'AAAAA'.should =~ subject.anything_but_whitespaces
         end
       end
-
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Regexp.easy do
+describe Regexp do
 
   describe 'class' do
     it 'is of Regexp class' do
@@ -25,9 +25,8 @@ describe Regexp.easy do
   describe 'Easyregexp methods' do
     describe 'accepts' do
       it 'does exactly the same that its typical Regexp counterpart' do
-        subject.accepts('hola sfa').should == (/.*/ =~ 'hola sfa')
+        subject.accepts('hola sfa').should == (// =~ 'hola sfa')
       end
     end
   end
-
 end
