@@ -15,8 +15,7 @@ class Regexp
     regexp = HASHREGEXP[method]
     arg = arg.inject(:+) if arg.is_a? Array
     regexp = regexp.gsub('$',arg) if arg
-    regexp = source + regexp
-    r = Regexp.new(regexp)
+    r = add(regexp)
     r.verbose = verbalize(method, arg)
     return r
   end
@@ -27,6 +26,11 @@ class Regexp
 
   def accepts(string)
     self =~ string
+  end
+
+  def add(string)
+    regexp = source + string
+    r = Regexp.new(regexp)
   end
 
   private
