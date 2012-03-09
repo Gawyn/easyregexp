@@ -37,7 +37,7 @@ class Regexp
 
   HASHREGEXP = 
     {
-      :anything_but_whitespaces => '\S',
+      :any_no_whitespaces => '\S',
       :anything_but => '[^$]',
       :all_the_whitespaces => '\s',
       :any_word => '\w',
@@ -47,7 +47,8 @@ class Regexp
       :one_or_more => '$+',
       :any_digit => '\d',
       :any_nondigit => '\D',
-      :capture => '($)'
+      :capture => '($)',
+      :anything => "."
     }
 
   def verbalize(method, arg)
