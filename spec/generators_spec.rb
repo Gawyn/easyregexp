@@ -49,19 +49,18 @@ describe Regexp do
          end
         end
       end
-
-      describe '#anything_but_whitespaces' do
+      describe "no_whitespaces" do
         it 'responds to the method' do
-          subject.respond_to?('anything_but_whitespaces').should be_true
+          subject.respond_to?('no_whitespaces').should be_true
         end
         it 'returns the correct regexp' do
-          subject.anything_but_whitespaces.should == /\S/
+          subject.no_whitespaces.should == /\S/
         end
         it 'returns the correct verbose form' do
-          subject.anything_but_whitespaces.verbose.should == 'Anything but whitespaces'
+          subject.no_whitespaces.verbose.should == 'No whitespaces'
         end
         it 'should behave properly' do
-          'AAAAA'.should =~ subject.anything_but_whitespaces
+          'AAAAA'.should =~ subject.no_whitespaces
         end
       end
     end

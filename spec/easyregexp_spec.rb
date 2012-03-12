@@ -28,5 +28,10 @@ describe Regexp do
         subject.accepts('hola sfa').should == (// =~ 'hola sfa')
       end
     end
+    describe 'add' do
+      it 'adds values to the regular expression' do
+        subject.add("some value").source.should == "some value"
+      end
+    end
   end
 end

@@ -15,9 +15,9 @@ class Regexp
     regexp = HASHREGEXP[method]
     arg = arg.inject(:+) if arg.is_a? Array
     regexp = regexp.gsub('$',arg) if arg
-    r = add(regexp)
+    r = add(regexp, false)
     r.verbose = verbalize(method, arg)
-    return r
+    r
   end
 
   def respond_to?(method)
@@ -28,16 +28,18 @@ class Regexp
     self =~ string
   end
 
-  def add(string)
+  def add(string, verbalize=true)
     regexp = source + string
     r = Regexp.new(regexp)
+    r.verbose = verbalize("add", string) if verbalize
+    r
   end
 
   private
 
   HASHREGEXP = 
     {
-      :any_no_whitespaces => '\S',
+      :no_whitespaces => '\S',
       :anything_but => '[^$]',
       :all_the_whitespaces => '\s',
       :any_word => '\w',
@@ -48,13 +50,15 @@ class Regexp
       :any_digit => '\d',
       :any_nondigit => '\D',
       :capture => '($)',
-      :anything => "."
+      :anything => ".",
+      :any_letter => ["a-zA-Z"],
+      :any_digit => [0-9]
     }
 
   def verbalize(method, arg)
     arg = '' if arg.nil?
     arg = ' '+arg unless arg.empty?
-    @verbose += method.to_s.gsub!('_',' ').capitalize+arg
+    @verbose += method.to_s.gsub('_',' ').capitalize+arg
   end
 
 end
